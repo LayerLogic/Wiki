@@ -16,7 +16,7 @@
 
 2. **Select Core Technologies**
 
-   Following the [Adding Dependencies activity](#issue---adding-dependencies), record details about the core technologies that will be used on the project. For example, the programing language, frameworks, compilers, etc.
+   Following the [Adding Dependencies activity](../issue_activities/adding_dependecies.md), record details about the core technologies that will be used on the project. For example, the programing language, frameworks, compilers, etc.
 
 **Outputs:** Draft SDS
 
