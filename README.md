@@ -172,9 +172,10 @@ Change Request Created
 
 > _For new engineers joining LayerLogic._
 
-| Document                                                      | Description                                                                 |
-| ------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| [Engineer Onboarding Plan](onboarding/engineer_onboarding.md) | 5-day onboarding guide with daily goals, setup instructions, and checklists |
+| Document                                                      | Description                                                                   |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [Engineer Onboarding Plan](onboarding/engineer_onboarding.md) | 5-day onboarding guide with daily goals, setup instructions, and checklists   |
+| [AGENT.md](AGENT.md)                                          | AI agent instructions — drop into every repo so AI tools follow our standards |
 
 ---
 
