@@ -1,49 +1,88 @@
-**Trigger:** Need to create a software system test record
+## Release — Software System Testing
+
+> How to execute and record unit, integration, and manual system tests for a release.
+
+---
+
+**Trigger:** Need to create a software system test record for a release
 
 **Performed by:** An engineer
 
-**Inputs:** The build artifacts to test
+**Inputs:** The build artefacts to test
 
-**Tasks:**
+---
 
-1. **Start Test Record**
+### Tasks
 
-   Copy `documents/test_record_template.md` and name it appropriately. (Usually, it makes sense to name test records after the release they're testing.)
+#### 1. Start Test Record
 
-   Add your name to the test record [[62304:5.6.7.c and 62304:5.7.5.c and 62304:9.8.g]].
+- [ ] Copy the [Test Record](./test_record.md) template and name it for the release (e.g., `test_record_v1.2.0.md`)
+- [ ] Add your name to the test record [[62304:5.6.7.c, 62304:5.7.5.c, 62304:9.8.g]]
+- [ ] Add the date when you started testing [[62304:9.8.f]]
+- [ ] Record the git commit hash for the code being tested [[62304:9.8.c]]
 
-   Add the date when you started the testing [[62304:9.8.f]].
+#### 2. Unit and Integration Tests
 
-2. **Unit and Integration Tests**
+> Although it's usually impossible to run unit and integration tests in a production environment, the test environment should match the production environment as closely as possible.
 
-   Although it's usually impossible to run the unit and integration tests in a production environment, the test environment should match the production environment as closely as possible. The test record should describe the test environment and should be detailed enough to allow another engineer to re-run the tests [[62304:5.6.7.b and 62304:5.7.5.b]]. In particular, it should include the git commit hash for the state of the code that was built and tested [[62304:9.8.c]]. Dirty working environments aren't allowed. Any relevant environment variables should also be included. Any testing tools [[62304:9.8.e]] or hardware should also be recorded [[62304:9.8.d]].
+The test record should include enough detail for another engineer to reproduce the test environment [[62304:5.6.7.b, 62304:5.7.5.b]]:
 
-   Run the unit and integration tests. Include the list of tests that were run and whether they passed or failed [[62304:5.6.7.a 62304:5.7.5.a]].
+- [ ] **Git commit hash** — the exact state of the code built and tested
+- [ ] **Environment details** — OS, runtime versions, relevant environment variables
+- [ ] **Clean working environment** — no uncommitted changes (dirty environments are not allowed)
+- [ ] **Testing tools** used [[62304:9.8.e]]
+- [ ] **Hardware** used (if applicable) [[62304:9.8.d]]
 
-3. **Manual System Testing**
+Run the tests and record results:
 
-   The manual tests will be run on a staging environment that is as similar to the production environment as possible. The test record should describe the staging environment and should be detailed enough to allow the tests to be re-run [[62304:5.6.7.b and 62304:5.7.5.b]].
+```bash
+# Example: Run all tests in a clean environment
+git checkout v1.2.0
+npm ci          # Clean install of dependencies
+npm run test    # Run unit and integration tests
+```
 
-   {# NOTE that this approach assumes that the engineer will be running the manual tests. Chances are there will be additional testing that occurs above the software level. It may make sense to refer to this higher-level testing as the "system testing" and leave it to the higher-level documentation. #}
+- [ ] Record the list of tests that were run
+- [ ] Record whether each test passed or failed [[62304:5.6.7.a, 62304:5.7.5.a]]
+- [ ] Record code coverage metrics
 
-   Run the manual tests. Include the list of tests that were run and whether they passed or failed [[62304:5.6.7.a 62304:5.7.5.a]].
+#### 3. Manual System Testing
 
-4. **Reporting Test Failures**
+Manual tests should be run on a **staging environment** that mirrors production as closely as possible.
 
-   Any test failures shall be recorded as problem reports [[62304:5.6.8 62304:5.7.4.d]]. See the [prepare problem report activity](#prepare-problem-report) for details [[62304:5.7.2]]. If any pull requests are implemented in response to these problem reports, the tests must be re-run [[62304:5.7.3.a 62304:5.7.3.b]]. If it is deemed unnecessary to re-run some of the tests, the justification as to why shall be included in the test record.
+The test record must describe the staging environment in sufficient detail to allow the tests to be re-run [[62304:5.6.7.b, 62304:5.7.5.b]].
 
-5. **Completing the Test Record**
+- [ ] Set up the staging environment (document the setup steps)
+- [ ] Run each manual test case from the test plan
+- [ ] Record whether each test step passed or failed [[62304:5.6.7.a, 62304:5.7.5.a]]
+- [ ] Capture screenshots or evidence for key validation steps
 
-   Finish filling in the rest record. Be sure it records whether the overall test-run passes or fails according to the criteria listed in the [Testing Plan](#testing-plan) [[62304:5.6.7.a 62304:5.6.4]].
+#### 4. Reporting Test Failures
+
+Any test failures **must** be recorded as problem reports (GitHub issues tagged with `bug`) [[62304:5.6.8, 62304:5.7.4.d]]. See the [Problem Resolution](../issue_activities/problem_resolution.md) activity for details [[62304:5.7.2]].
+
+**If fixes are implemented:**
+
+- [ ] All affected tests **must** be re-run [[62304:5.7.3.a, 62304:5.7.3.b]]
+- [ ] If only a subset of tests is re-run, document the regression analysis justification in the test record
+
+#### 5. Completing the Test Record
+
+- [ ] Fill in all remaining fields in the test record
+- [ ] Record whether the overall test run **passes** or **fails** according to the criteria in the [Testing Plan](../plans/testing_plan.md) [[62304:5.6.7.a, 62304:5.6.4]]
+- [ ] Link all problem reports created during testing
+
+---
 
 **Outputs:** Completed test record and any problem reports
 
-**Verification tasks:**
+**Verified by:** Another engineer
 
-1. **Review Test Record**
+### Verification Tasks
 
-   Ensure the test record is completed correctly:
-
-   - Check that all of the tests have been run.
-   - Confirm that there is enough detail to recreate the test environment.
-   - Confirm that the overall test-run result is consistent with the [Testing Plan](#testing-plan).
+1. **Review Test Record** — Ensure the test record is completed correctly:
+   - [ ] All planned tests have been executed
+   - [ ] There is enough detail to recreate the test environment
+   - [ ] The overall test-run result is consistent with the [Testing Plan](../plans/testing_plan.md) criteria
+   - [ ] All test failures have corresponding problem reports
+   - [ ] Any re-runs after fixes are documented with regression analysis

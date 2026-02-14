@@ -6,11 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! Please make sure this isn’t a duplicate before submitting.
+        Thanks for taking the time to fill out this bug report! Please make sure this isn't a duplicate before submitting.
+
+        Bug reports are tracked as problem reports per our SDLC [[62304:9.1]].
   - type: input
     id: summary
     attributes:
       label: Bug Summary
+      description: A concise description of the bug
       placeholder: Short summary of the issue
     validations:
       required: true
@@ -18,24 +21,72 @@ body:
     id: steps
     attributes:
       label: Steps to Reproduce
+      description: Detailed steps to reproduce the behaviour
       placeholder: |
         1. Go to '...'
-        2. Run '...'
-        3. See error
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected Behavior
+      description: What you expected to happen
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
       label: Actual Behavior
+      description: What actually happened
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Low — Cosmetic issue or minor inconvenience
+        - Medium — Feature works but with issues
+        - High — Feature is significantly impaired
+        - Critical — System crash, data loss, or safety concern
+    validations:
+      required: true
+  - type: dropdown
+    id: reproducibility
+    attributes:
+      label: Reproducibility
+      options:
+        - Always
+        - Sometimes
+        - Rarely
+        - Unable to reproduce
+    validations:
+      required: true
   - type: input
     id: environment
     attributes:
       label: Environment Details
-      placeholder: OS, browser, or version info
+      description: OS, browser, runtime version, or other relevant info
+      placeholder: e.g., macOS 14.2, Chrome 121, Node.js 20.11.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Error Messages
+      description: Paste any relevant log output or error messages
+      render: shell
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Recordings
+      description: If applicable, add screenshots or recordings to help explain the problem
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround
+      description: Is there a known workaround for this issue?

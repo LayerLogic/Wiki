@@ -1,0 +1,78 @@
+name: Change Request
+description: Request a modification to existing functionality
+title: "[Change]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request changes to existing software functionality. All development work must tie back to a change request [[62304:8.2.1]].
+  - type: input
+    id: summary
+    attributes:
+      label: Change Summary
+      description: A concise description of the change
+      placeholder: Short summary of the change
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why is this change needed?
+      placeholder: |
+        Explain why this change is necessary. Include context such as user feedback, regulatory requirements, risk control measures, or performance issues.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      description: Describe the change in detail
+      placeholder: |
+        What needs to change? Be as specific as possible about the current behaviour and the desired behaviour.
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Affected Components
+      description: Which software items, modules, or systems are affected?
+      placeholder: |
+        - Component A
+        - Module B
+        - External API C
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: List any new or modified requirements
+      placeholder: |
+        - REQ-XXX: [requirement description]
+        - REQ-XXX: [requirement description]
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risk Considerations
+      description: Are there any risks associated with this change?
+      placeholder: |
+        Consider safety, security, data integrity, and backwards compatibility.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How will we verify this change is complete?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low — Nice to have
+        - Medium — Important but not urgent
+        - High — Needed for upcoming release
+        - Critical — Blocks other work
+    validations:
+      required: true

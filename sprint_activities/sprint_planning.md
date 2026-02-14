@@ -1,38 +1,74 @@
-**Trigger:** Usually every two weeks
+## Sprint — Sprint Planning
 
-**Performed by:** Engineering team during a call
+> The recurring ceremony for demonstrations, assignments, and process improvement.
 
-**Inputs:** The list of change requests and work accomplished during the last week
+---
 
-**Tasks:**
+**Trigger:** Usually every two weeks (at the start of each sprint)
 
-1. **Demonstrations**
+**Performed by:** Engineering team during a call (product owner **must** attend)
 
-   Keep the demonstrations short and appropriately high-level for their purpose. Prepare beforehand.
+**Inputs:** The list of change requests and work accomplished during the last sprint
 
-   - Each engineer presents a live demonstration of their progress. These demos allow the product owner to identify gaps, misunderstandings, or inconsistencies in the requirements. (Architectural design, construction, testing, etc., can better be reviewed in pull requests).
+---
 
-2. **Assignments for Next Sprint**
+### Tasks
 
-   - Close any change requests that are completed, as determined by the product owner.
-      
-   Change requests that have not yet been assigned to a release have not yet been approved, and thus any work that implements these change requests should not be merged into main [[62304:8.2.1 and 62304:6.2.4]]. Being assigned to the current release means the product owner approves of the work.
+#### 1. Demonstrations (≈15 minutes)
 
-   - Review new change requests and problem reports that have been added since the last sprint meeting. Assign the issues to the appropriate release or delete them.
+Each engineer presents a **live demonstration** of their progress from the previous sprint.
 
-   Finally, assign change requests to be completed by each engineer during the following sprint. Add these change requests to the GitHub epic.
+**Guidelines:**
 
-3. **Process Retrospective**
+- [ ] Keep demonstrations short and appropriately high-level
+- [ ] Prepare beforehand — have the demo environment ready
+- [ ] Focus on user-visible progress and key decisions
+- [ ] The product owner uses demos to identify gaps, misunderstandings, or inconsistencies in requirements
+- [ ] Architectural design, construction, and testing are better reviewed in pull requests
 
-   - Ask if there are any opportunities for process improvement. Typically there isn't much time left to discuss in detail, so if large changes are proposed, it can be helpful to schedule a follow-up call.
+#### 2. Assignments for Next Sprint (≈20 minutes)
 
-   - Once a process change has been agreed upon, the project lead should update the software plan to reflect the new process.
+**Close completed work:**
+
+- [ ] Close change requests that are completed, as determined by the product owner
+
+> **Important:** Change requests that have not been assigned to a release have not been approved. Work implementing unapproved change requests should **not** be merged into `main` [[62304:8.2.1, 62304:6.2.4]]. Being assigned to the current release means the product owner approves of the work.
+
+**Review new items:**
+
+- [ ] Review new change requests and problem reports added since the last sprint
+- [ ] Assign issues to the appropriate release milestone or move to icebox
+- [ ] Delete or mark as `obsolete` any issues that are no longer relevant
+
+**Assign work:**
+
+- [ ] Assign change requests to each engineer for the upcoming sprint
+- [ ] Ensure assignments are realistic given the sprint duration
+- [ ] Add assigned change requests to the current sprint's GitHub milestone or project board
+
+#### 3. Process Retrospective (≈10 minutes)
+
+- [ ] **Ask:** Are there any opportunities for process improvement?
+- [ ] If large changes are proposed, schedule a follow-up call to discuss in detail
+- [ ] Once a process change is agreed upon, the project lead updates the software plan to reflect the new process
+
+**Suggested retrospective format:**
+
+| Category           | Question                    |
+| ------------------ | --------------------------- |
+| 🟢 **Keep doing**  | What went well this sprint? |
+| 🟡 **Start doing** | What should we try?         |
+| 🔴 **Stop doing**  | What's not working?         |
+
+---
 
 **Outputs:** Closed change requests, change request approvals, change request assignments for the following sprint
 
 **Verified by:** Not applicable
 
 **Verification tasks:** Not applicable
+
+---
 
 **Comments:**
 

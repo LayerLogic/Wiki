@@ -1,25 +1,59 @@
+## Project — Initial Architecture Design
+
+> How to establish the software system architecture and select core technologies at the start of a project.
+
+---
+
 **Trigger:** Start of a new project
 
-**Performed by:** Project lead with the engineering team
+**Performed by:** Project Lead with the engineering team
 
-**Inputs:** Draft SDS
+**Inputs:** Draft SRS, existing system architecture (if any)
 
-**Tasks:**
+---
 
-1. **Document Software Items**
+### Tasks
 
-   Develop an initial software system architecture and document it in the SDS [[62304:5.3.1]]. The SDS should describe how the software system is divided into a hierarchy of software items [[62304:5.4.1]]. The level of granularity should be higher depending on the risk.
+#### 1. Document Software Items
 
-   Following the Issue - Design Specifications activity, update the architectural diagrams and fill in parts of the SDS.
+Develop an initial software system architecture and document it in the SDS (Software Design Specification) [[62304:5.3.1]].
 
-   The initial architecture does not need to be complete since code construction can guide architectural decisions. However, it is worth spending a significant amount of time on the initial architecture.
+The SDS should describe:
 
-2. **Select Core Technologies**
+- How the software system is divided into a hierarchy of software items [[62304:5.4.1]]
+- The responsibilities of each major software item
+- The interfaces between software items
+- The interfaces between software items and external systems (hardware, APIs, etc.)
 
-   Following the [Adding Dependencies activity](../issue_activities/adding_dependecies.md), record details about the core technologies that will be used on the project. For example, the programing language, frameworks, compilers, etc.
+> **Guidance:** The level of granularity should be higher for higher-risk components. The initial architecture does not need to be complete since code construction can guide architectural decisions. However, investing significant time in the initial architecture reduces costly rework later.
 
-**Outputs:** Draft SDS
+Following the [Design Specifications](../issue_activities/design_specifications.md) activity, update the architectural diagrams and fill in parts of the SDS.
 
-**Verified by:** See issue-layer activities
+#### 2. Select Core Technologies
 
-**Verification tasks:** See issue-layer activities
+Following the [Adding Dependencies](../issue_activities/adding_dependencies.md) activity, evaluate and record details about the core technologies that will be used on the project:
+
+| Technology                  | Details to Record                               |
+| --------------------------- | ----------------------------------------------- |
+| **Programming language(s)** | Language, version, and runtime                  |
+| **Frameworks**              | Web framework, ORM, etc.                        |
+| **Build tools**             | Compiler, bundler, package manager              |
+| **Database**                | Type, version, hosting                          |
+| **Infrastructure**          | Cloud provider, containerisation, orchestration |
+| **SOUP / key libraries**    | Major third-party dependencies                  |
+
+#### 3. Define Architecture Diagrams
+
+Create the following diagrams (at minimum):
+
+- [ ] **System context diagram** — shows the software system and its external interfaces
+- [ ] **Component/container diagram** — shows the major software items and their relationships
+- [ ] **Data flow diagram** — shows how data moves through the system (if applicable)
+
+---
+
+**Outputs:** Draft SDS with architecture diagrams and technology selections
+
+**Verified by:** See [Design Specifications](../issue_activities/design_specifications.md) verification tasks
+
+**Verification tasks:** See [Design Specifications](../issue_activities/design_specifications.md) verification tasks

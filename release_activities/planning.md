@@ -1,59 +1,82 @@
-**Trigger:** The start of a new release
+## Release — Planning
 
-**Performed by:** Project lead
+> How to plan and set up a new software release.
+
+---
+
+**Trigger:** The start of a new release cycle
+
+**Performed by:** Project Lead
 
 **Inputs:** User needs, Draft SRS, Draft SDS, and Problem Reports
 
-**Tasks:**
+---
 
-1. **Select Version Number**
+### Tasks
 
-   Each release shall have a version number.
+#### 1. Select Version Number
 
-   TODO: add more details about project versioning here. E.g., you may want to follow [semver](https://semver.org).
+Each release shall have a version number following [Semantic Versioning (SemVer)](https://semver.org):
 
-   version number MAJOR.MINOR.PATCH, incrementing the:
+```
+MAJOR.MINOR.PATCH
+```
 
-   - MAJOR version when you make incompatible API changes
-   - MINOR version when you add functionality in a backward compatible manner
-   - PATCH version when you make backward compatible bug fixes
+| Component | Increment When                                        |
+| --------- | ----------------------------------------------------- |
+| **MAJOR** | You make incompatible API changes or breaking changes |
+| **MINOR** | You add functionality in a backward-compatible manner |
+| **PATCH** | You make backward-compatible bug fixes                |
 
-2. **Release Setup**
+**Pre-release versions** may use suffixes: `1.0.0-alpha.1`, `1.0.0-beta.1`, `1.0.0-rc.1`
 
-   Create the GitHub milestone for the release.
+#### 2. Release Setup
 
-3. **Start a New Release Record**
+- [ ] Create a GitHub milestone for the release (e.g., `v1.2.0`)
+- [ ] Set the milestone's target date
+- [ ] Create a release branch if using a release branching strategy (e.g., `release/1.2.0`)
 
-   Make a copy of the Release Record and Test Record templates and fill in as much detail as is appropriate; these will be filled in before the release is finalized.
+#### 3. Start a New Release Record
 
-4. **Review Software Dependencies**
+- [ ] Copy the [Release Record](./release_record.md) template and name it for the release (e.g., `release_record_v1.2.0.md`)
+- [ ] Copy the [Test Record](./test_record.md) template and name it for the release (e.g., `test_record_v1.2.0.md`)
+- [ ] Fill in as much detail as is appropriate; these will be completed before the release is finalised
 
-   If the release is public, determine if any software dependencies have become obsolete or should be upgraded. Also, review known anomalies in published anomalies lists as appropriate [[62304:6.1.f]].
+#### 4. Review Software Dependencies
 
-   Create change requests as appropriate.
+If the release is public, review all software dependencies:
 
-5. **Review Problem Reports**
+- [ ] Determine if any dependencies have become obsolete or should be upgraded
+- [ ] Review known anomalies in published vulnerability databases [[62304:6.1.f]]
+- [ ] Run dependency audit tools (e.g., `npm audit`, `pip audit`, `snyk test`)
+- [ ] Create change requests for any necessary dependency updates
 
-   Consider outstanding problem reports in the backlog [[62304:9.4]]. Move problem reports into the current release as appropriate.
+#### 5. Review Problem Reports
 
-6. **Review Risk Management File**
+- [ ] Review outstanding problem reports in the backlog [[62304:9.4]]
+- [ ] Move safety-critical problem reports into the current release
+- [ ] Triage remaining problem reports by severity and priority
 
-   Review {{workflow.risk_management_file}} for risk control measures that have not been implemented [[62304:7.2.2.c]].
+#### 6. Review Risk Management File
 
-   Create change requests as appropriate.
+- [ ] Review the [Risk Management file](../plans/software_risk_management.xlsx) for risk control measures that have not been implemented [[62304:7.2.2.c]]
+- [ ] Create change requests for any unimplemented risk controls that must be addressed in this release
 
-7. **Add Initial Change Requests**
+#### 7. Add Initial Change Requests
 
-   Coordinate with the product owner regarding which features should be included in the release. Create change requests for the major new features as appropriate.
+- [ ] Coordinate with the product owner regarding which features should be included in the release
+- [ ] Create change requests for major new features
+- [ ] Ensure all change requests are assigned to the release milestone
 
-   Create change requests as appropriate.
+---
 
-**Outputs:** A partially completed release record and the set of change requests which should be implemented for the next release
+**Outputs:** A partially completed release record and the set of change requests for the release
 
-**Verified by:** Project lead
+**Verified by:** Project Lead
 
-**Verification tasks:**
+### Verification Tasks
 
-1. **Release Record**
-
-   Be sure you've fully updated the new release record template.
+1. **Release Record** — Verify that the new release record template has been copied and partially filled in.
+2. **Milestone** — Verify that the GitHub milestone exists with the correct version number and target date.
+3. **Dependencies** — Verify that a dependency review was performed.
+4. **Risk Controls** — Verify that unimplemented risk controls were reviewed.
