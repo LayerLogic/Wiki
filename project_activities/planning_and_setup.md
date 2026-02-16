@@ -44,10 +44,10 @@ Create the following labels:
 
 **Templates:**
 
-- Add the [Bug Report](.github/ISSUE_TEMPLATE/bug_report.yaml) issue template
-- Add the [Feature Request](.github/ISSUE_TEMPLATE/feature_request.yaml) issue template
-- Add the [Change Request](.github/ISSUE_TEMPLATE/change_request.yaml) issue template
-- Add the [Pull Request Template](.github/pull_request_template.md)
+- Add the [Bug Report](../.github/ISSUE_TEMPLATE/bug_report.yaml) issue template
+- Add the [Feature Request](../.github/ISSUE_TEMPLATE/feature_request.yaml) issue template
+- Add the [Change Request](../.github/ISSUE_TEMPLATE/change_request.yaml) issue template
+- Add the [Pull Request Template](../.github/pull_request_template.md)
 
 #### 2. CI/CD Pipeline Setup
 
